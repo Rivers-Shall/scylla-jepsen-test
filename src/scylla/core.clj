@@ -20,6 +20,7 @@
             [scylla [batch          :as batch]
                     [batch-return   :as batch-return]
                     [cas-register   :as cas-register]
+                    [cas-only-register   :as cas-only-register]
                     [client         :as sc]
                     [counter        :as counter]
                     [db             :as db]
@@ -39,6 +40,7 @@
   {:batch-set       batch/set-workload
    :batch-return    batch-return/workload
    :cas-register    cas-register/workload
+   :cas-only-register    cas-only-register/workload
    :counter         counter/workload
    :cmap            cmap/workload
    :list-append     list-append/workload
