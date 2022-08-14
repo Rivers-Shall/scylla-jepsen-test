@@ -1,5 +1,7 @@
 # Scylla
 
+**Currenctly, we run our tests on docker but install ScyllaDB on nodes manually with [ScyllaDB-web-installer](https://docs.scylladb.com/stable/getting-started/install-scylla/scylla-web-installer.html) instead of using `jepsen.core` functions**
+
 This repository implements Jepsen tests for Scylla.
 
 You'll need a Jepsen environment, including a control node with a JVM and
