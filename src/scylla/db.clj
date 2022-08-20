@@ -323,7 +323,7 @@
   [node test]
   (install-jdk8!)
   (prep-for-version-change! test)
-  (install-scylla-from-apt! test)
+  ;(install-scylla-from-apt! test)
   (install-local-files! test))
 
 (defn bootstrap-seeds
