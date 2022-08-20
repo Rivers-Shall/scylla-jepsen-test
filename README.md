@@ -1,6 +1,16 @@
 # Scylla
 
-**Currenctly, we run our tests on docker but install ScyllaDB on nodes manually with [ScyllaDB-web-installer](https://docs.scylladb.com/stable/getting-started/install-scylla/scylla-web-installer.html) instead of using `jepsen.core` functions**
+## Run tests on ScyllaDB 4.6
+
+let's say we have a working directory `test`.
+
+1. clone [jepsen repository](https://github.com/jepsen-io/jepsen.git) into directory `test/jepsen`
+2. clone this repository into `test/jepsen/scylla-jepsen-test`
+3. start up jepsen docker container with `test/jepsen/docker/bin/up`
+4. enter jepsen-control node with `test/jepsen/docker/bin/console`
+5. install ScyllaDB 4.6 on 5 nodes with `ssh n1/n2/n3/n4/n5` and `curl -sSf get.scylladb.com/server | sudo bash -s -- --scylla-version 4.6` 
+6. enter `/jepsen/scylla-jepsen-test` directory in jepsen-control node
+7. run test with `lein run test -w cas-only-register --version 4.6` and other options like `concurrency, rate, nemesis`
 
 This repository implements Jepsen tests for Scylla.
 
