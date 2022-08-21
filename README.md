@@ -3,10 +3,19 @@
 ## Run tests on ScyllaDB 4.6
 
 let's say we have a working directory `test`.
+- `cd test/`
 
 1. clone [jepsen repository](https://github.com/jepsen-io/jepsen.git) into directory `test/jepsen`
+  - `git clone https://github.com/jepsen-io/jepsen`
 2. clone this repository into `test/jepsen/scylla-jepsen-test`
+  - `cd jepsen/`
+  - `git clone git@github.com:Rivers-Shall/scylla-jepsen-test.git`
 3. start up jepsen docker container with `test/jepsen/docker/bin/up`
+  - `cd docker/bin/`
+  - `sudo ./up` # this step takes time ...
+    - You need to install `docker-compose` first.
+      - Install `docker-desktop`
+      - Download [`docker-compose v2.10.0`](https://github.com/docker/compose/releases/tag/v2.10.0) to `/usr/local/bin/docker-compose` and make it executable `sudo chmod +x /usr/local/bin/docker-compose`
 4. enter jepsen-control node with `test/jepsen/docker/bin/console`
 5. install ScyllaDB 4.6 on 5 nodes with `ssh n1/n2/n3/n4/n5` and `curl -sSf get.scylladb.com/server | sudo bash -s -- --scylla-version 4.6` 
 6. enter `/jepsen/scylla-jepsen-test` directory in jepsen-control node
